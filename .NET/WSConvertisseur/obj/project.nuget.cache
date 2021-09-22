@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZnEEF4Q84ICv03E5DaMYNSODqZQdokIGDSlkfn4i431H72KvY7APifcRkkqF7jKMJPFiJxAeLtwt6oElnZ2cqA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\eloib\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\eloib\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\eloib\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\eloib\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\eloib\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\eloib\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}
