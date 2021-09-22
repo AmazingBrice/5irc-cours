@@ -11,8 +11,8 @@ namespace WSConvertisseur.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
-        public double Rate { get; set; }
+        public string NomDevise { get; set; }
+        public double Taux { get; set; }
 
         public Devise()
         {
@@ -20,9 +20,9 @@ namespace WSConvertisseur.Models
 
         public Devise(int id, string name, double rate)
         {
-            this.Id = id;
-            this.Name = name;
-            this.Rate = rate;
+            Id = id;
+            NomDevise = name;
+            Taux = rate;
         }
     }
 }

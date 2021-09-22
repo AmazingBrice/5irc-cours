@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\brice\\Documents\\CPE\\5IRC\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj": {}
+    "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj": {}
   },
   "projects": {
-    "C:\\Users\\brice\\Documents\\CPE\\5IRC\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj": {
+    "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\brice\\Documents\\CPE\\5IRC\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj",
+        "projectUniqueName": "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj",
         "projectName": "WSConvertisseur",
-        "projectPath": "C:\\Users\\brice\\Documents\\CPE\\5IRC\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj",
-        "packagesPath": "C:\\Users\\brice\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\brice\\Documents\\CPE\\5IRC\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\obj\\",
+        "projectPath": "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\WSConvertisseur.csproj",
+        "packagesPath": "C:\\Users\\eloib\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eloib\\Documents\\Projects\\5irc-cours\\.NET\\WSConvertisseur\\WSConvertisseur\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\brice\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\eloib\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -67,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
