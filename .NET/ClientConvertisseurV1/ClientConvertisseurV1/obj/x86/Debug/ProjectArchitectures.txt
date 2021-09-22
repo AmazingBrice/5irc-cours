@@ -1,0 +1,1 @@
+C:\Users\eloib\Documents\Projects\5irc-cours\.NET\ClientConvertisseurV1\ClientConvertisseurV1\ClientConvertisseurV1.csproj;x86
