@@ -46,6 +46,7 @@ namespace WSConvertisseur.Controllers
         /// <response code="200">When the currency id is found</response>
         /// <response code="404">When the currency id is not found</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
         /// GET /api/devise/5
         [HttpGet("{id}", Name = "GetDevise")]
         public IActionResult GetById(int id)
@@ -66,6 +67,7 @@ namespace WSConvertisseur.Controllers
         /// <response code="200">Si la devise envoyée est valide</response>
         /// <response code="400">Si la devise envoyée est invalide</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(400)]
         // POST api/<DeviseController>
         [HttpPost]
         public IActionResult Post([FromBody] Devise devise)
@@ -86,6 +88,7 @@ namespace WSConvertisseur.Controllers
         /// <response code="200">Si la devise envoyée est valide</response>
         /// <response code="400">Si la devise envoyée est invalide</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(400)]
         // PUT api/<DeviseController>/5
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Devise devise)
@@ -119,6 +122,7 @@ namespace WSConvertisseur.Controllers
         /// <response code="200">la devise a été supprimée</response>
         /// <response code="404">L'id ne correspond à aucune devise</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
         // DELETE api/<DeviseController>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)

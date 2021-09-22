@@ -85,3 +85,4 @@ C:\Users\eloib\Documents\Projects\5irc-cours\.NET\WSConvertisseur\WSConvertisseu
 C:\Users\eloib\Documents\Projects\5irc-cours\.NET\WSConvertisseur\WSConvertisseur\obj\Debug\net5.0\ref\WSConvertisseur.dll
 C:\Users\eloib\Documents\Projects\5irc-cours\.NET\WSConvertisseur\WSConvertisseur\obj\Debug\net5.0\WSConvertisseur.pdb
 C:\Users\eloib\Documents\Projects\5irc-cours\.NET\WSConvertisseur\WSConvertisseur\obj\Debug\net5.0\WSConvertisseur.genruntimeconfig.cache
+C:\Users\eloib\Documents\Projects\5irc-cours\.NET\WSConvertisseur\WSConvertisseur\bin\Debug\net5.0\WSConvertisseur.xml
