@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2", "Cl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP2Console", "TP2Console\TP2Console.csproj", "{D9780B95-6D03-413F-A88E-3CE394DEA5AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSConvertisseurUnitTestProject", "WSConvertisseurUnitTestProject\WSConvertisseurUnitTestProject.csproj", "{A7288D9B-9A80-4423-B512-C280842BBB6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,26 @@ Global
 		{D9780B95-6D03-413F-A88E-3CE394DEA5AF}.Release|x64.Build.0 = Release|Any CPU
 		{D9780B95-6D03-413F-A88E-3CE394DEA5AF}.Release|x86.ActiveCfg = Release|Any CPU
 		{D9780B95-6D03-413F-A88E-3CE394DEA5AF}.Release|x86.Build.0 = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|ARM.Build.0 = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|x64.Build.0 = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Debug|x86.Build.0 = Debug|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|ARM.ActiveCfg = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|ARM.Build.0 = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|ARM64.Build.0 = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x64.ActiveCfg = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x64.Build.0 = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x86.ActiveCfg = Release|Any CPU
+		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
