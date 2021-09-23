@@ -31,7 +31,7 @@ namespace WSConvertisseur.Controllers
         /// <returns>Http response</returns>
         /// <response code="200">Quand des devises sont présentes</response>
         /// [ProducesResponseType(typeof(IEnumerable<Devise>), 200)]
-        /// GET: api/Devise
+        // GET: api/Devise
         [HttpGet]
         public IEnumerable<Devise> GetAll()
         {
@@ -47,7 +47,7 @@ namespace WSConvertisseur.Controllers
         /// <response code="404">When the currency id is not found</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]
         /// [ProducesResponseType(404)]
-        /// GET /api/devise/5
+        // GET /api/devise/5
         [HttpGet("{id}", Name = "GetDevise")]
         public IActionResult GetById(int id)
         {
@@ -84,6 +84,7 @@ namespace WSConvertisseur.Controllers
         /// Création d'une devise
         /// </summary>
         /// <returns>Http response</returns>
+        /// <param name="id">L'id de la devise à mettre à jour</param>
         /// <param name="devise">La devise à mettre à jour</param>
         /// <response code="200">Si la devise envoyée est valide</response>
         /// <response code="400">Si la devise envoyée est invalide</response>

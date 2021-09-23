@@ -15,7 +15,6 @@
             <response code="404">When the currency id is not found</response>
             [ProducesResponseType(typeof(IActionResult), 200)]
             [ProducesResponseType(404)]
-            GET /api/devise/5
         </member>
         <member name="M:WSConvertisseur.Controllers.DeviseController.Post(WSConvertisseur.Models.Devise)">
             <summary>
@@ -33,6 +32,7 @@
             Création d'une devise
             </summary>
             <returns>Http response</returns>
+            <param name="id">L'id de la devise à mettre à jour</param>
             <param name="devise">La devise à mettre à jour</param>
             <response code="200">Si la devise envoyée est valide</response>
             <response code="400">Si la devise envoyée est invalide</response>

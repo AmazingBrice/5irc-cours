@@ -364,3 +364,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 .NET/docker/db
+.NET/ClientConvertisseurV1/Package.appxmanifest
+.NET/WSConvertisseur/WSConvertisseur.csproj
