@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+
+  films-db:
+    image: postgres:13-alpine
+    container_name: films-db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=FilmsDB
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 8000:8080
+    depends_on:
+      - films-db
