@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WSConvertisseur</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:WSConvertisseur.Controllers.DeviseController.GetAll" -->
+        <member name="M:WSConvertisseur.Controllers.DeviseController.GetById(System.Int32)">
+            <summary>
+            Récupération d'une devise par son id
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The id of the currency</param>
+            <response code="200">When the currency id is found</response>
+            <response code="404">When the currency id is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+            GET /api/devise/5
+        </member>
+        <member name="M:WSConvertisseur.Controllers.DeviseController.Post(WSConvertisseur.Models.Devise)">
+            <summary>
+            Création d'une devise
+            </summary>
+            <returns>Http response</returns>
+            <param name="devise">La devise à créer</param>
+            <response code="200">Si la devise envoyée est valide</response>
+            <response code="400">Si la devise envoyée est invalide</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(400)]
+        </member>
+        <member name="M:WSConvertisseur.Controllers.DeviseController.Put(System.Int32,WSConvertisseur.Models.Devise)">
+            <summary>
+            Création d'une devise
+            </summary>
+            <returns>Http response</returns>
+            <param name="devise">La devise à mettre à jour</param>
+            <response code="200">Si la devise envoyée est valide</response>
+            <response code="400">Si la devise envoyée est invalide</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(400)]
+        </member>
+        <member name="M:WSConvertisseur.Controllers.DeviseController.Delete(System.Int32)">
+            <summary>
+            Création d'une devise
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">La devise id à supprimer</param>
+            <response code="200">la devise a été supprimée</response>
+            <response code="404">L'id ne correspond à aucune devise</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="ClientConvertisseurV1.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ClientConvertisseurV1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Text="Montant en Euros" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="36"/>
+        <TextBox x:Name="inputValue" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="55" Width="280" Margin="0,50,0,0"/>
+        <TextBlock Text="Devise" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="36" Margin="0,150,0,0"/>
+        <ComboBox x:Name="cbxDevise" ItemsSource="{Binding}" SelectedValuePath="Taux" 
+DisplayMemberPath="NomDevise" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="38" Width="291" Margin="0,200,0,0"></ComboBox>
+        <Button x:Name="calculateButton" Click="calculateButtonClick" IsEnabled="{Binding ElementName=inputValue, 
+Path=Text.Length, Mode=OneWay}" Content="Convertir" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="101" Width="205" FontSize="36" Margin="0,250,0,0"/>
+        <TextBlock Text="Montant en devises" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="36" Margin="0,400,0,0"/>
+        <TextBox x:Name="resultBox" IsReadOnly="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="55" Width="280" Margin="0,450,0,0"></TextBox>
+    </RelativePanel>
+</Page>
