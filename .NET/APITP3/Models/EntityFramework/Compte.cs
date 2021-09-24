@@ -77,5 +77,11 @@ namespace APITP3.Models.EntityFramework
 
         [InverseProperty(nameof(Favori.CompteFavori))]
         public virtual ICollection<Favori> FavorisCompte { get; set; }
+
+        public override bool Equals(object result)
+        {
+            return CompteId == ((Compte)result).CompteId
+                && Mel == ((Compte)result).Mel;
+        }
     }
 }

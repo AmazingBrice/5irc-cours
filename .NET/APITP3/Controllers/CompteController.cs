@@ -25,7 +25,7 @@ namespace APITP3.Controllers
         // GET: api/Compte
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Compte>))]
-        public async Task<ActionResult<IEnumerable<Compte>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<Compte>>> GetAll()
         {
             return await _dataRepository.GetAllAsync();
         }
