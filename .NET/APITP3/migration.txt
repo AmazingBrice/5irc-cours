@@ -1,5 +1,0 @@
-dotnet-ef migrations add CreationBDFilmRating --project APITP3
-
-dotnet-ef database update --project APITP3
-
-dotnet-ef migrations remove --project APITP3

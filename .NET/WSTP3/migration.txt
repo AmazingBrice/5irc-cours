@@ -1,0 +1,5 @@
+dotnet-ef migrations add CreationBDFilmRating --project WSTP3
+
+dotnet-ef database update --project WSTP3
+
+dotnet-ef migrations remove --project WSTP3
