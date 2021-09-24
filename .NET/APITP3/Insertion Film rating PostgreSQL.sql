@@ -5,9 +5,9 @@
 INSERT INTO public."T_E_FILM_FLM"("FLM_TITRE", "FLM_SYNOPSIS", "FLM_DATEPARUTION", "FLM_DUREE", "FLM_GENRE", "FLM_URLPHOTO")
 VALUES ('Avengers : L''�re d''Ultron', 'Alors que Tony Stark tente de relancer un programme de maintien de la paix jusque-l� suspendu, les choses tournent mal et les super-h�ros Iron Man, Captain America, Thor, Hulk, Black Widow et Hawkeye vont devoir � nouveau unir leurs forces pour combattre le plus puissant de leurs adversaires : le terrible Ultron, un �tre technologique terrifiant qui s''est jur� d''�radiquer l''esp�ce humaine.', '2015-09-15', 120, 'Fantastique', null);
 INSERT INTO public."T_E_FILM_FLM"("FLM_TITRE", "FLM_SYNOPSIS", "FLM_DATEPARUTION", "FLM_DUREE", "FLM_GENRE", "FLM_URLPHOTO")
-VALUES ('Lucy', 'A la suite de circonstances ind�pendantes de sa volont�, une jeune �tudiante voit ses capacit�s intellectuelles se d�velopper � l''infini. Elle colonise son cerveau, et acquiert des pouvoirs illimit�s.', '06/12/2014', 90, 'Science-fiction', null);
+VALUES ('Lucy', 'A la suite de circonstances ind�pendantes de sa volont�, une jeune �tudiante voit ses capacit�s intellectuelles se d�velopper � l''infini. Elle colonise son cerveau, et acquiert des pouvoirs illimit�s.', '2015-09-15', 90, 'Science-fiction', null);
 INSERT INTO public."T_E_FILM_FLM"("FLM_TITRE", "FLM_SYNOPSIS", "FLM_DATEPARUTION", "FLM_DUREE", "FLM_GENRE", "FLM_URLPHOTO")
-VALUES ('Virgin suicides', null, '10/07/2011', 90, 'Drame', null);
+VALUES ('Virgin suicides', null, '2015-09-15', 90, 'Drame', null);
 
 INSERT INTO public."T_E_COMPTE_CPT"("CPT_MEL", "CPT_NOM", "CPT_PRENOM", "CPT_TELPORTABLE", "CPT_RUE", "CPT_CP", "CPT_VILLE", "CPT_PAYS", "CPT_LATITUDE", "CPT_LONGITUDE", "CPT_PWD")
 	VALUES ('paul.durand@gmail.com', 'DURAND', 'Paul', null, 'Chemin de Bellevue', '74940', 'Annecy-le-Vieux', 'France', 45.921154, 6.153794, 'Info123/');
