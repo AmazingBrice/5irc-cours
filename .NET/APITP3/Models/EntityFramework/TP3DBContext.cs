@@ -18,8 +18,8 @@ namespace APITP3.Models.EntityFramework
         {
         }
 
-        public virtual DbSet<Favori> Avis { get; set; }
-        public virtual DbSet<Compte> Categories { get; set; }
+        public virtual DbSet<Favori> Favoris { get; set; }
+        public virtual DbSet<Compte> Comptes { get; set; }
         public virtual DbSet<Film> Films { get; set; }
 
         public static readonly ILoggerFactory MyLoggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
@@ -30,8 +30,7 @@ namespace APITP3.Models.EntityFramework
             {
                 optionsBuilder
                     .UseLoggerFactory(MyLoggerFactory)
-                    .EnableSensitiveDataLogging()
-                    .UseNpgsql("Server=localhost;port=5432;Database=TP3DB; uid=admin;password=admin;");
+                    .EnableSensitiveDataLogging();
             }
         }
 
