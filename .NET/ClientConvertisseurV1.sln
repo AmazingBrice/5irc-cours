@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSConvertisseur", "WSConver
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientConvertisseurV2", "ClientConvertisseurV2\ClientConvertisseurV2.csproj", "{DCBAC6D0-CB4B-4562-A4A5-0A655647E773}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP2Console", "TP2Console\TP2Console.csproj", "{D9780B95-6D03-413F-A88E-3CE394DEA5AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TP2Console", "TP2Console\TP2Console.csproj", "{D9780B95-6D03-413F-A88E-3CE394DEA5AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WSConvertisseurUnitTestProject", "WSConvertisseurUnitTestProject\WSConvertisseurUnitTestProject.csproj", "{A7288D9B-9A80-4423-B512-C280842BBB6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSConvertisseurUnitTestProject", "WSConvertisseurUnitTestProject\WSConvertisseurUnitTestProject.csproj", "{A7288D9B-9A80-4423-B512-C280842BBB6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APITP3", "APITP3\APITP3.csproj", "{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,6 +141,26 @@ Global
 		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x64.Build.0 = Release|Any CPU
 		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x86.ActiveCfg = Release|Any CPU
 		{A7288D9B-9A80-4423-B512-C280842BBB6F}.Release|x86.Build.0 = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|x64.Build.0 = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Debug|x86.Build.0 = Debug|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|ARM.Build.0 = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|ARM64.Build.0 = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|x64.ActiveCfg = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|x64.Build.0 = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|x86.ActiveCfg = Release|Any CPU
+		{CB19D5F9-5E12-48EF-BF83-4234FC880EA9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
