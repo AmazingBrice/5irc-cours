@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using APITP3.Models.EntityFramework;
+using APITP3.Models.DataManager;
+using APITP3.Repository;
 
 namespace APITP3.Controllers
 {
@@ -13,11 +15,11 @@ namespace APITP3.Controllers
     [ApiController]
     public class CompteController : ControllerBase
     {
-        private readonly TP3DBContext _context;
+        private readonly IDataRepository<Compte> _dataRepository;
 
-        public CompteController(TP3DBContext context)
+        public CompteController(IDataRepository<Compte> dataRepository)
         {
-            _context = context;
+            _dataRepository = dataRepository;
         }
 
         // GET: api/Compte
@@ -25,7 +27,7 @@ namespace APITP3.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Compte>))]
         public async Task<ActionResult<IEnumerable<Compte>>> GetCategories()
         {
-            return await _context.Comptes.ToListAsync();
+            return await _dataRepository.GetAllAsync();
         }
 
         [HttpGet("GetCompteByEmail/{email}")]
@@ -33,7 +35,7 @@ namespace APITP3.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Compte>> GetCompteByEmail(string email)
         {
-            var compte = await _context.Comptes.FirstOrDefaultAsync(c => c.Mel == email);
+            var compte = await  _dataRepository.GetByStringAsync(email);
 
             if (compte == null)
             {
@@ -49,9 +51,7 @@ namespace APITP3.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Compte>> GetCompteById(int id)
         {
-            var compte = await _context.Comptes
-                .Include(c => c.FavorisCompte)
-                .FirstOrDefaultAsync(c => c.CompteId == id);
+            var compte = await _dataRepository.GetByIdAsync(id);
 
             if (compte == null)
             {
@@ -67,30 +67,21 @@ namespace APITP3.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> PutCompte(int id, Compte compte)
+        public async Task<ActionResult> PutCompte(int id, Compte compte)
         {
             if (id != compte.CompteId)
             {
-                return BadRequest("Id incohérent");
+                return BadRequest();
             }
 
-            _context.Entry(compte).State = EntityState.Modified;
+            var compteToUpdate = await _dataRepository.GetByIdAsync(id);
 
-            try
+            if (compteToUpdate == null)
             {
-                await _context.SaveChangesAsync();
+                return NotFound();
             }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CompteExists(id))
-                {
-                    return NotFound("Le compte n'existe pas");
-                }
-                else
-                {
-                    throw;
-                }
-            }
+
+            await _dataRepository.UpdateAsync(compteToUpdate.Value, compte);
 
             return NoContent();
         }
@@ -102,31 +93,25 @@ namespace APITP3.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Compte>> PostCompte(Compte compte)
         {
-            _context.Comptes.Add(compte);
-            await _context.SaveChangesAsync();
+            await _dataRepository.AddAsync(compte);
 
             return CreatedAtAction("GetCompte", new { id = compte.CompteId }, compte);
         }
 
         // DELETE: api/Compte/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteCompte(int id)
-        //{
-        //    var compte = await _context.Categories.FindAsync(id);
-        //    if (compte == null)
-        //    {
-        //        return NotFound("Le compte n'existe pas");
-        //    }
-
-        //    _context.Categories.Remove(compte);
-        //    await _context.SaveChangesAsync();
-
-        //    return NoContent();
-        //}
-
-        private bool CompteExists(int id)
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteCompte(int id)
         {
-            return _context.Comptes.Any(e => e.CompteId == id);
+            var compte = await _dataRepository.GetByIdAsync(id);
+
+            if (compte == null)
+            {
+                return NotFound("Le compte n'existe pas");
+            }
+
+            await _dataRepository.DeleteAsync(compte.Value);
+
+            return NoContent();
         }
     }
 }

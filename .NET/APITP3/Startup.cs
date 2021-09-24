@@ -1,4 +1,6 @@
+using APITP3.Models.DataManager;
 using APITP3.Models.EntityFramework;
+using APITP3.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +39,8 @@ namespace APITP3
 
             services.AddDbContext<TP3DBContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("TP3DBContext")));
+
+            services.AddScoped<IDataRepository<Compte>, CompteManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
