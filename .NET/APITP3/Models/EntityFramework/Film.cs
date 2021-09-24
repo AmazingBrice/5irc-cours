@@ -37,6 +37,7 @@ namespace APITP3.Models.EntityFramework
         [Required(AllowEmptyStrings = false)]
         public string Genre { get; set; }
 
+        [Url]
         [Column("FLM_URLPHOTO")]
         [StringLength(200)]
         public string UrlPhoto { get; set; }

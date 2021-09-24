@@ -22,12 +22,15 @@ namespace APITP3.Controllers
 
         // GET: api/Compte
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Compte>))]
         public async Task<ActionResult<IEnumerable<Compte>>> GetCategories()
         {
             return await _context.Comptes.ToListAsync();
         }
 
         [HttpGet("GetCompteByEmail/{email}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Compte))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Compte>> GetCompteByEmail(string email)
         {
             var compte = await _context.Comptes.FirstOrDefaultAsync(c => c.Mel == email);
@@ -41,10 +44,14 @@ namespace APITP3.Controllers
         }
 
         // GET: api/Compte/5
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Compte))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<Compte>> GetCompteById(int id)
         {
-            var compte = await _context.Comptes.FindAsync(id);
+            var compte = await _context.Comptes
+                .Include(c => c.FavorisCompte)
+                .FirstOrDefaultAsync(c => c.CompteId == id);
 
             if (compte == null)
             {
@@ -57,6 +64,9 @@ namespace APITP3.Controllers
         // PUT: api/Compte/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> PutCompte(int id, Compte compte)
         {
             if (id != compte.CompteId)
@@ -88,6 +98,8 @@ namespace APITP3.Controllers
         // POST: api/Compte
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Compte>> PostCompte(Compte compte)
         {
             _context.Comptes.Add(compte);
