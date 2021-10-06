@@ -26,7 +26,7 @@ namespace WSConvertisseur.Controllers
         }
 
         /// <summary>
-        /// Récupération de toutes les dévises
+        /// Récupération de toutes les devises
         /// </summary>
         /// <returns>Http response</returns>
         /// <response code="200">Quand des devises sont présentes</response>
@@ -116,10 +116,10 @@ namespace WSConvertisseur.Controllers
         }
 
         /// <summary>
-        /// Création d'une devise
+        /// Suppression d'une devise
         /// </summary>
         /// <returns>Http response</returns>
-        /// <param name="id">La devise id à supprimer</param>
+        /// <param name="id">L'id de la devise à supprimer</param>
         /// <response code="200">la devise a été supprimée</response>
         /// <response code="404">L'id ne correspond à aucune devise</response>
         /// [ProducesResponseType(typeof(IActionResult), 200)]

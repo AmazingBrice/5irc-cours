@@ -22,6 +22,12 @@ namespace WSTP3.Controllers
             _dataRepository = dataRepository;
         }
 
+        /// <summary>
+        /// Récupération de toutes les comptes utilisateurs
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <response code="200">Quand des comptes sont bien présents</response>
+        /// [ProducesResponseType(typeof(IEnumerable<Devise>), 200)]
         // GET: api/Compte
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<Compte>))]
@@ -45,6 +51,15 @@ namespace WSTP3.Controllers
             return compte;
         }
 
+        /// <summary>
+        /// Récupération d'un compte par son id
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">The id of the account</param>
+        /// <response code="200">When the account id is found</response>
+        /// <response code="404">When the account id is not found</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
         // GET: api/Compte/5
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Compte))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -61,6 +76,17 @@ namespace WSTP3.Controllers
             return compte;
         }
 
+        /// <summary>
+        /// Modification d'un compte par son id et le compte correspondant
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">The id of the account</param>
+        /// <param name="Compte">The account object and all its properties</param>
+        /// <response code="200">When the account id is found</response>
+        /// <response code="404">When the account id is not found</response>
+        /// <response code="404">When the account id is different from the account id in Compte</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(400)]
         // PUT: api/Compte/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
@@ -86,6 +112,15 @@ namespace WSTP3.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Création d'un nouveau compte
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="devise">Le compte à créer</param>
+        /// <response code="200">Si le compte envoyé est valide</response>
+        /// <response code="400">Si le compte envoyé est invalide</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(400)]
         // POST: api/Compte
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
@@ -98,8 +133,19 @@ namespace WSTP3.Controllers
             return CreatedAtAction("GetCompte", new { id = compte.CompteId }, compte);
         }
 
+        /// <summary>
+        /// Suppression d'un compte
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">L'id du compte à supprimer</param>
+        /// <response code="200">Le compte a bien été supprimé</response>
+        /// <response code="404">L'id ne correspond à aucun compte</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
         // DELETE: api/Compte/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> DeleteCompte(int id)
         {
             var compte = await _dataRepository.GetByIdAsync(id);
