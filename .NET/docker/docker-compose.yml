@@ -2,15 +2,15 @@ version: "3.7"
 
 services:
 
-  films-db:
+  tp3-db:
     image: postgres:13-alpine
-    container_name: films-db
+    container_name: tp3-db
     ports:
       - 5432:5432
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
-      - POSTGRES_DB=FilmsDB
+      - POSTGRES_DB=tp3-db
     volumes:
       - ./db:/var/lib/postgresql/data
 
@@ -20,4 +20,4 @@ services:
     ports:
       - 8000:8080
     depends_on:
-      - films-db
+      - tp3-db
