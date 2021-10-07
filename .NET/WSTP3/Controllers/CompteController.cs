@@ -93,7 +93,7 @@ namespace WSTP3.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> PutCompte(int id, Compte compte)
+        public async Task<ActionResult> PutCompte([FromRoute] int id, [FromBody] Compte compte)
         {
             if (id != compte.CompteId)
             {

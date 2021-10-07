@@ -39,7 +39,7 @@ namespace WSTP3.Models.EntityFramework
         [Column("CPT_MEL")]
         public string Mel { get; set; }
 
-        [RegularExpression(@"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})$", ErrorMessage = "Password is invalid")]
+        // [RegularExpression(@"^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})$", ErrorMessage = "Password is invalid")]
         [Column("CPT_PWD")]
         [StringLength(64)]
         public string Pwd { get; set; }

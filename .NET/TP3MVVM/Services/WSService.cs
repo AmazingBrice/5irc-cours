@@ -6,6 +6,8 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json;
+using System.Text;
 
 namespace TP3MVVM.Services
 {
@@ -22,6 +24,20 @@ namespace TP3MVVM.Services
                 compte = await response.Content.ReadAsAsync<Compte>();
             }
             return compte;
+        }
+
+        public static async Task<bool> PutCompteAsync(Compte compte)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(compte), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync($"https://localhost:5001/api/Compte/{compte.CompteId}", stringContent);
+            return response.IsSuccessStatusCode;
+        }
+
+        public static async Task<bool> PostCompteAsync(Compte compte)
+        {
+            var stringContent = new StringContent(JsonConvert.SerializeObject(compte), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync($"https://localhost:5001/api/Compte", stringContent);
+            return response.IsSuccessStatusCode;
         }
     }
 }

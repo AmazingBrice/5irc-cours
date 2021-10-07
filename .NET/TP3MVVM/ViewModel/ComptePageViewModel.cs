@@ -1,11 +1,13 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Toolkit.Uwp.Notifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using TP3MVVM.Models;
 using TP3MVVM.Services;
 using Windows.UI.Xaml.Controls;
 
@@ -14,113 +16,68 @@ namespace TP3MVVM.ViewModel
     class ComptePageViewModel : ViewModelBase
     {
         public ICommand SearchButton { get; set; }
-        public string SearchMail { get; set; }
-        public string nom;
-        public string prenom;
-        public string portable;
-        public string mail;
-        public string adresse;
-        public string cp;
-        public string ville;
-        public string pays;
+        public ICommand BtnModifyCompteCommand { get; set; }
+        public ICommand BtnClearCompteCommand { get; set; }
+        public ICommand BtnAddCompteCommand { get; set; }
 
-        public string Nom
+        private Compte searchCompte { get; set; }
+
+        public Compte SearchCompte
         {
-            get { return nom; }
+            get { return searchCompte; }
             set
             {
-                nom = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Prenom
-        {
-            get { return prenom; }
-            set
-            {
-                prenom = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Portable
-        {
-            get { return portable; }
-            set
-            {
-                portable = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Mail
-        {
-            get { return mail; }
-            set
-            {
-                mail = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Adresse
-        {
-            get { return adresse; }
-            set
-            {
-                adresse = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string CP
-        {
-            get { return cp; }
-            set
-            {
-                cp = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Ville
-        {
-            get { return ville; }
-            set
-            {
-                ville = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public string Pays
-        {
-            get { return pays; }
-            set
-            {
-                pays = value;
+                searchCompte = value;
                 RaisePropertyChanged();
             }
         }
 
         public ComptePageViewModel()
         {
+            searchCompte = new Compte();
             SearchButton = new RelayCommand(ActionSearchByEmail);
+            BtnModifyCompteCommand = new RelayCommand(ActionModifyCompte);
+            BtnClearCompteCommand = new RelayCommand(ActionClearCompte);
+            BtnAddCompteCommand = new RelayCommand(ActionAddCompte);
         }
 
         private async void ActionSearchByEmail()
         {
-            var compte = await WSService.GetCompteByMailAsync(SearchMail);
+            SearchCompte = await WSService.GetCompteByMailAsync(SearchCompte.Mel);
+        }
 
-            Nom = compte.Nom;
-            Prenom = compte.Prenom;
-            Portable = compte.TelPortable;
-            Mail = compte.Mel;
-            Adresse = compte.Rue;
-            CP = compte.CodePostal;
-            Ville = compte.Ville;
-            Pays = compte.Pays;
+        private async void ActionModifyCompte()
+        {
+            if (SearchCompte.CompteId == 0)
+            {
+                return;
+            }
+
+            if (await WSService.PutCompteAsync(SearchCompte))
+            {
+                new ToastContentBuilder()
+                   .AddText("Enregistrement réussi")
+                   .Show(); ;
+            }
+            else
+            {
+                new ToastContentBuilder()
+                   .AddText("Echec lors de l'enregistrement")
+                   .Show(); ;
+            }
+
+
+           
+        }
+
+        private async void ActionClearCompte()
+        {
+            SearchCompte = new Compte();
+        }
+
+        private async void ActionAddCompte()
+        {
+            await WSService.PostCompteAsync(SearchCompte);
         }
     }
 }

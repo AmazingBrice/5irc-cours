@@ -18,6 +18,10 @@ namespace WSTP3.Models.DataManager
             _context = context;
         }
 
+        public CompteManager()
+        {
+        }
+
         public async Task<ActionResult<IEnumerable<Compte>>> GetAllAsync()
         {
             return await _context.Comptes.ToListAsync();
@@ -44,6 +48,7 @@ namespace WSTP3.Models.DataManager
         public async Task UpdateAsync(Compte compte, Compte entity)
         {
             _context.Entry(compte).State = EntityState.Modified;
+
             compte.CompteId = entity.CompteId;
             compte.Nom = entity.Nom;
             compte.Prenom = entity.Prenom;
