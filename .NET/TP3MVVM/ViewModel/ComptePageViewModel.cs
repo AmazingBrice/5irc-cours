@@ -10,9 +10,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace TP3MVVM.ViewModel
 {
-    class RootPageViewModel : ViewModelBase
+    class ComptePageViewModel : ViewModelBase
     {
-        public RootPageViewModel()
+        public ComptePageViewModel()
         {
         }
     }

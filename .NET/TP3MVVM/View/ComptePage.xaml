@@ -6,9 +6,33 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding ComptePageVM, Source={StaticResource Locator}}">
 
-    <Grid>
+    <RelativePanel>
+        <TextBlock Text="Recherche d'un compte" HorizontalAlignment="Left" FontSize="36" Foreground="#FFF72301" FontWeight="Bold"/>
+        
+        <TextBlock Text="Mail" FontSize="36" Margin="380,50,0,0"/>
+        <TextBox x:Name="searchMail" Text="{Binding SearchMail, Mode=TwoWay}" Height="55" Width="350" Margin="470,50,0,0"/>
+        <Button x:Name="searchButton" Command="{Binding SearchButton}" Content="Rechercher" Height="55" Width="205" FontSize="30" Margin="850,50,0,0"/>
+        
+        <TextBlock Text="Nom" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,110,0,0"/>
+        <TextBox x:Name="nom" Text="{Binding Nom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,150,0,0"/>
 
-    </Grid>
+        <TextBlock Text="Prénom" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,190,0,0"/>
+        <TextBox x:Name="prenom" Text="{Binding Prenom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,230,0,0"/>
+
+        <TextBlock Text="Portable" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,270,0,0"/>
+        <TextBox x:Name="portable" Text="{Binding Portable, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,310,0,0"/>
+
+        <TextBlock Text="Mail" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,350,0,0"/>
+        <TextBox x:Name="mail" Text="{Binding Mail, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,390,0,0"/>
+
+        <TextBlock Text="Adresse (Rue, CP, Ville, Pays)" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,430,0,0"/>
+        <TextBox x:Name="adresse" Text="{Binding Adresse, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,470,0,0"/>
+        <TextBox x:Name="cp" Text="{Binding cp, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="150" Margin="0,520,0,0"/>
+        <TextBox x:Name="ville" Text="{Binding ville, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,570,0,0"/>
+        <TextBox x:Name="pays" Text="{Binding Pays, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,620,0,0"/>
+
+    </RelativePanel>
 </Page>
