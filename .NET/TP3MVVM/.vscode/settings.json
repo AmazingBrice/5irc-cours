@@ -1,0 +1,11 @@
+{
+  "dotnet-test-explorer.testProjectPath": "**/**Tests.csproj",
+  "i18n-ally.localesPaths": [
+    "src/WebUI/Assets/"
+  ],
+  "cucumber-quick": {
+    "tool": "cucumberjs",
+    "script": "cd src/WebUI/ClientApp & npx cucumber-js e2e/features/ --require e2e/features/**/*.js"
+  },
+  "i18n-ally.keystyle": "nested"
+}

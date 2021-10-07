@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace TP3MVVM.Services
 {
@@ -12,15 +13,15 @@ namespace TP3MVVM.Services
     {
         static HttpClient client = new HttpClient();
 
-        public static async Task<List<Compte>> GetAllComptesAsync()
+        public static async Task<Compte> GetCompteByMailAsync(string email)
         {
-            List<Compte> comptes = null;
-            HttpResponseMessage response = await client.GetAsync("https://localhost:5001/api/compte");
+            Compte compte = null;
+            HttpResponseMessage response = await client.GetAsync($"https://localhost:5001/api/Compte/GetCompteByEmail/{email}");
             if (response.IsSuccessStatusCode)
             {
-                comptes = await response.Content.ReadAsAsync<List<Compte>>();
+                compte = await response.Content.ReadAsAsync<Compte>();
             }
-            return comptes;
+            return compte;
         }
     }
 }
