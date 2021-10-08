@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WSTP3</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "M:WSTP3.Controllers.CompteController.GetAll" -->
+        <member name="M:WSTP3.Controllers.CompteController.GetCompteByEmail(System.String)">
+            <summary>
+            Récupération d'un compte par email
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The mail of the account</param>
+            <response code="200">When an account is found</response>
+            <response code="404">When an account is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <member name="M:WSTP3.Controllers.CompteController.GetCompteById(System.Int32)">
+            <summary>
+            Récupération d'un compte par son id
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The id of the account</param>
+            <response code="200">When the account id is found</response>
+            <response code="404">When the account id is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <member name="M:WSTP3.Controllers.CompteController.PutCompte(System.Int32,WSTP3.Models.EntityFramework.Compte)">
+            <summary>
+            Modification d'un compte par son id et le compte correspondant
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The id of the account</param>
+            <param name="Compte">The account object and all its properties</param>
+            <response code="200">When the account id is found</response>
+            <response code="404">When the account id is not found</response>
+            <response code="404">When the account id is different from the account id in Compte</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(400)]
+        </member>
+        <member name="M:WSTP3.Controllers.CompteController.PostCompte(WSTP3.Models.EntityFramework.Compte)">
+            <summary>
+            Création d'un nouveau compte
+            </summary>
+            <returns>Http response</returns>
+            <param name="devise">Le compte à créer</param>
+            <response code="200">Si le compte envoyé est valide</response>
+            <response code="400">Si le compte envoyé est invalide</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(400)]
+        </member>
+        <member name="M:WSTP3.Controllers.CompteController.DeleteCompte(System.Int32)">
+            <summary>
+            Suppression d'un compte
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">L'id du compte à supprimer</param>
+            <response code="200">Le compte a bien été supprimé</response>
+            <response code="404">L'id ne correspond à aucun compte</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <member name="M:WSTP3.Controllers.CompteController.PatchCompte(System.Int32,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{WSTP3.Models.EntityFramework.Compte})">
+            <summary>
+            Patch d'un compte
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">L'id du compte à supprimer</param>
+            <response code="204">Le compte a bien été patché</response>
+            <response code="404">L'id ne correspond à aucun compte</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WSTP3.Controllers.FavoriController.GetAll" -->
+        <member name="M:WSTP3.Controllers.FavoriController.GetFavorisByCompteId(System.Int32)">
+            <summary>
+            Récupération des favoris d'un compte par l'id de ce compte
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The id of the account</param>
+            <response code="200">When the account id is found</response>
+            <response code="404">When the account id is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:WSTP3.Controllers.FilmController.GetAll" -->
+        <member name="M:WSTP3.Controllers.FilmController.GetFilmByName(System.String)">
+            <summary>
+            Récupération des films en fonction du nom
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The title of the film</param>
+            <response code="200">When a film is found</response>
+            <response code="404">When a film is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+        <member name="M:WSTP3.Controllers.FilmController.GetFilmById(System.Int32)">
+            <summary>
+            Récupération d'un film par son id
+            </summary>
+            <returns>Http response</returns>
+            <param name="id">The id of the film</param>
+            <response code="200">When the film id is found</response>
+            <response code="404">When the film id is not found</response>
+            [ProducesResponseType(typeof(IActionResult), 200)]
+            [ProducesResponseType(404)]
+        </member>
+    </members>
+</doc>
