@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace WSTP3.Models.DataManager
 {
-    public class FilmManager : IDataRepository<Film>
+    public class FilmManager : IFilmRepository
     {
         readonly TP3DBContext _context;
 
@@ -34,7 +34,7 @@ namespace WSTP3.Models.DataManager
                 .FirstOrDefaultAsync(e => e.FilmId == id);
         }
 
-        public async Task<ActionResult<Film>> GetByStringAsync(string title)
+        public async Task<ActionResult<Film>> GetByTitleAsync(string title)
         {
             return await _context.Films
                 .FirstOrDefaultAsync(e => e.Titre.ToUpper() == title.ToUpper());

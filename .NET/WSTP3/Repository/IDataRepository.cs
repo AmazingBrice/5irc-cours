@@ -10,8 +10,6 @@ namespace WSTP3.Repository
     public interface IDataRepository<TEntity>
     {
         Task<ActionResult<IEnumerable<TEntity>>> GetAllAsync();
-        Task<ActionResult<TEntity>> GetByIdAsync(int id);
-        Task<ActionResult<TEntity>> GetByStringAsync(string str);
         Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entityToUpdate, TEntity entity);
         Task DeleteAsync(TEntity entity);

@@ -16,9 +16,9 @@ namespace WSTP3.Controllers
     [ApiController]
     public class CompteController : ControllerBase
     {
-        private readonly IDataRepository<Compte> _dataRepository;
+        private readonly ICompteRepository _dataRepository;
 
-        public CompteController(IDataRepository<Compte> dataRepository)
+        public CompteController(ICompteRepository dataRepository)
         {
             _dataRepository = dataRepository;
         }
@@ -37,12 +37,22 @@ namespace WSTP3.Controllers
             return await _dataRepository.GetAllAsync();
         }
 
+        /// <summary>
+        /// Récupération d'un compte par email
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">The mail of the account</param>
+        /// <response code="200">When an account is found</response>
+        /// <response code="404">When an account is not found</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
+        // GET: api/Compte/5
         [HttpGet("GetCompteByEmail/{email}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Compte))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Compte>> GetCompteByEmail(string email)
         {
-            var compte = await  _dataRepository.GetByStringAsync(email);
+            var compte = await  _dataRepository.GetByMailAsync(email);
 
             if (compte == null)
             {
@@ -169,7 +179,7 @@ namespace WSTP3.Controllers
         /// [ProducesResponseType(typeof(IActionResult), 200)]
         /// [ProducesResponseType(404)]
         // PATCH: api/Compte/5
-        [HttpPatch("{id:int}")]
+        [HttpPatch("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
        public async Task<ActionResult<Compte>> PatchCompte([FromRoute] int id, [FromBody] JsonPatchDocument<Compte> patchEntity)

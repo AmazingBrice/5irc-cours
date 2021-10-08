@@ -16,9 +16,9 @@ namespace WSTP3.Controllers
     [ApiController]
     public class FilmController : ControllerBase
     {
-        private readonly IDataRepository<Film> _dataRepository;
+        private readonly IFilmRepository _dataRepository;
 
-        public FilmController(IDataRepository<Film> dataRepository)
+        public FilmController(IFilmRepository dataRepository)
         {
             _dataRepository = dataRepository;
         }
@@ -37,12 +37,22 @@ namespace WSTP3.Controllers
             return await _dataRepository.GetAllAsync();
         }
 
+        /// <summary>
+        /// Récupération des films en fonction du nom
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">The title of the film</param>
+        /// <response code="200">When a film is found</response>
+        /// <response code="404">When a film is not found</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
+        // GET: api/Film/5
         [HttpGet("GetFilmByName/{name}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Film))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<Film>> GetFilmByName(string title)
         {
-            var film = await  _dataRepository.GetByStringAsync(title);
+            var film = await  _dataRepository.GetByTitleAsync(title);
 
             if (film == null)
             {

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.JsonPatch;
 
 namespace WSTP3.Models.DataManager
 {
-    public class CompteManager : IDataRepository<Compte>
+    public class CompteManager : ICompteRepository
     {
         readonly TP3DBContext _context;
 
@@ -34,7 +34,7 @@ namespace WSTP3.Models.DataManager
                 .FirstOrDefaultAsync(e => e.CompteId == id);
         }
 
-        public async Task<ActionResult<Compte>> GetByStringAsync(string mail)
+        public async Task<ActionResult<Compte>> GetByMailAsync(string mail)
         {
             return await _context.Comptes
                 .FirstOrDefaultAsync(e => e.Mel.ToUpper() == mail.ToUpper());
