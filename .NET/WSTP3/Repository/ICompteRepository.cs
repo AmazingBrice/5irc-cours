@@ -9,7 +9,6 @@ namespace WSTP3.Repository
 {
     public interface ICompteRepository : IDataRepository<Compte>
     {
-        Task<ActionResult<Compte>> GetByIdAsync(int id);
         Task<ActionResult<Compte>> GetByMailAsync(string mail);
     }
 }

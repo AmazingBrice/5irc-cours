@@ -9,7 +9,6 @@ namespace WSTP3.Repository
 {
     public interface IFilmRepository : IDataRepository<Film>
     {
-        Task<ActionResult<Film>> GetByIdAsync(int id);
         Task<ActionResult<Film>> GetByTitleAsync(string title);
     }
 }

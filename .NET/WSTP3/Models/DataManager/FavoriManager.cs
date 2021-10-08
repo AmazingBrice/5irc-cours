@@ -70,5 +70,10 @@ namespace WSTP3.Models.DataManager
         {
             await _context.SaveChangesAsync();
         }
+
+        public Task<ActionResult<Favori>> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

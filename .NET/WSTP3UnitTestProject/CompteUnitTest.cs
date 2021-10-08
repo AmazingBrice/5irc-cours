@@ -8,6 +8,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
+using Newtonsoft.Json;
 
 namespace WSTP3UnitTestProject
 {
@@ -16,11 +18,11 @@ namespace WSTP3UnitTestProject
     {
         private CompteController _controller;
         private TP3DBContext _context;
-        private IDataRepository<Compte> _dataRepository;
+        private ICompteRepository _dataRepository;
 
         public CompteUnitTest()
         {
-            var builder = new DbContextOptionsBuilder<TP3DBContext>().UseNpgsql("Server=localhost;port=5432;Database=TP3DB; uid=admin;password=admin;");
+            var builder = new DbContextOptionsBuilder<TP3DBContext>().UseNpgsql("Server=localhost;port=5432;Database=tp3-db; uid=admin;password=admin;");
             _context = new TP3DBContext(builder.Options);
             _dataRepository = new CompteManager(_context);
             _controller = new CompteController(_dataRepository);
@@ -148,6 +150,22 @@ namespace WSTP3UnitTestProject
 
             // Assert
             Assert.AreEqual(resultDelete.StatusCode, 204, "Delete request did not work");
+        }
+
+        [TestMethod]
+        public async Task PatchCompte_ExistingIdPassed_ReturnsOkObjectResult()
+        {
+            var replaceValue = "toto";
+
+            JsonPatchDocument<Compte> patchDoc = new JsonPatchDocument<Compte>();
+            patchDoc.Replace(e => e.Nom, replaceValue);
+
+            // Act
+            await _controller.PatchCompte(1, patchDoc);
+            var result = await _controller.GetCompteById(1);
+
+            // Assert
+            Assert.AreEqual(result.Value.Nom, replaceValue, "Patch request did not work");
         }
     }
 }
