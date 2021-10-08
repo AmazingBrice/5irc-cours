@@ -35,16 +35,20 @@ namespace TP3MVVM.ViewModel
         public AddComptePageViewModel()
         {
             compteToAdd = new Compte();
-            BtnAddCompteCommand = new RelayCommand(ActionModifyCompte);
+            BtnAddCompteCommand = new RelayCommand(ActionAddCompte);
             BtnClearCompteCommand = new RelayCommand(ActionClearCompte);
         }
 
-        private async void ActionModifyCompte()
+        private async void ActionAddCompte()
         {
+            var latlng = await WSBingMaps.GetInstance().GetCoordinatesByCompte(CompteToAdd);
+            CompteToAdd.Latitude = latlng[0];
+            CompteToAdd.Longitude = latlng[1];
+
             if (await WSService.PostCompteAsync(CompteToAdd))
             {
                 new ToastContentBuilder()
-                   .AddText("Enregistrement réussi")
+                   .AddText($"Enregistrement réussi avec lat : {CompteToAdd.Latitude} et lng : {CompteToAdd.Longitude}")
                    .Show(); ;
             }
             else

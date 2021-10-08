@@ -122,7 +122,9 @@
     <Compile Include="Models\Compte.cs" />
     <Compile Include="Models\Favori.cs" />
     <Compile Include="Models\Film.cs" />
+    <Compile Include="Models\RootObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\WSBingMaps.cs" />
     <Compile Include="Services\WSService.cs" />
     <Compile Include="ViewModel\AddComptePageViewModel.cs" />
     <Compile Include="ViewModel\SearchOrUpdateComptePageViewModel.cs" />
