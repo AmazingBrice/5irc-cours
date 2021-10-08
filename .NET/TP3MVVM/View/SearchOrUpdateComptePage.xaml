@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="TP3MVVM.View.ComptePage"
+    x:Class="TP3MVVM.View.SearchOrUpdateComptePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:TP3MVVM.View"
@@ -7,32 +7,32 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    DataContext="{Binding ComptePageVM, Source={StaticResource Locator}}">
+    DataContext="{Binding SearchOrUpdateComptePageVM, Source={StaticResource Locator}}">
 
     <RelativePanel>
         <TextBlock Text="Recherche d'un compte" HorizontalAlignment="Left" FontSize="36" Foreground="#FFF72301" FontWeight="Bold"/>
         
         <TextBlock Text="Mail" FontSize="36" Margin="380,50,0,0"/>
-        <TextBox x:Name="searchMail" Text="{Binding SearchCompte.Mel, Mode=TwoWay}" Height="55" Width="350" Margin="470,50,0,0"/>
+        <TextBox x:Name="searchMail" Text="{Binding CompteToSearchOrUpdate.Mel, Mode=TwoWay}" Height="55" Width="350" Margin="470,50,0,0"/>
         <Button x:Name="searchButton" Command="{Binding SearchButton}" Content="Rechercher" Height="55" Width="205" FontSize="30" Margin="850,50,0,0"/>
         
         <TextBlock Text="Nom" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,110,0,0"/>
-        <TextBox x:Name="nom" Text="{Binding SearchCompte.Nom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,150,0,0"/>
+        <TextBox x:Name="nom" Text="{Binding CompteToSearchOrUpdate.Nom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,150,0,0"/>
 
         <TextBlock Text="Prénom" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,190,0,0"/>
-        <TextBox x:Name="prenom" Text="{Binding SearchCompte.Prenom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,230,0,0"/>
+        <TextBox x:Name="prenom" Text="{Binding CompteToSearchOrUpdate.Prenom, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,230,0,0"/>
 
         <TextBlock Text="Portable" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,270,0,0"/>
-        <TextBox x:Name="portable" Text="{Binding SearchCompte.TelPortable, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,310,0,0"/>
+        <TextBox x:Name="portable" Text="{Binding CompteToSearchOrUpdate.TelPortable, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,310,0,0"/>
 
         <TextBlock Text="Mail" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,350,0,0"/>
-        <TextBox x:Name="mail" Text="{Binding SearchCompte.Mel, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,390,0,0"/>
+        <TextBox x:Name="mail" Text="{Binding CompteToSearchOrUpdate.Mel, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,390,0,0"/>
 
         <TextBlock Text="Adresse (Rue, CP, Ville, Pays)" HorizontalAlignment="Center" RelativePanel.AlignHorizontalCenterWithPanel="True" FontSize="30" Margin="0,430,0,0"/>
-        <TextBox x:Name="adresse" Text="{Binding SearchCompte.Rue, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,470,0,0"/>
-        <TextBox x:Name="cp" Text="{Binding SearchCompte.CodePostal, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="150" Margin="0,520,0,0"/>
-        <TextBox x:Name="ville" Text="{Binding SearchCompte.Ville, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,570,0,0"/>
-        <TextBox x:Name="pays" Text="{Binding SearchCompte.Pays, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,620,0,0"/>
+        <TextBox x:Name="adresse" Text="{Binding CompteToSearchOrUpdate.Rue, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="400" Margin="0,470,0,0"/>
+        <TextBox x:Name="cp" Text="{Binding CompteToSearchOrUpdate.CodePostal, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="150" Margin="0,520,0,0"/>
+        <TextBox x:Name="ville" Text="{Binding CompteToSearchOrUpdate.Ville, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,570,0,0"/>
+        <TextBox x:Name="pays" Text="{Binding CompteToSearchOrUpdate.Pays, Mode=TwoWay}" RelativePanel.AlignHorizontalCenterWithPanel="True" Height="40" Width="250" Margin="0,620,0,0"/>
 
         <CommandBar x:Name="AppCommandBar" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <CommandBar.PrimaryCommands>

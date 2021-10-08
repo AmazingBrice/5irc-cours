@@ -9,32 +9,34 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TP3MVVM.Models;
 using TP3MVVM.Services;
+using TP3MVVM.View;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace TP3MVVM.ViewModel
 {
-    class ComptePageViewModel : ViewModelBase
+    class SearchOrUpdateComptePageViewModel : ViewModelBase
     {
         public ICommand SearchButton { get; set; }
         public ICommand BtnModifyCompteCommand { get; set; }
         public ICommand BtnClearCompteCommand { get; set; }
         public ICommand BtnAddCompteCommand { get; set; }
 
-        private Compte searchCompte { get; set; }
+        private Compte compteToSearchOrUpdate { get; set; }
 
-        public Compte SearchCompte
+        public Compte CompteToSearchOrUpdate
         {
-            get { return searchCompte; }
+            get { return compteToSearchOrUpdate; }
             set
             {
-                searchCompte = value;
+                compteToSearchOrUpdate = value;
                 RaisePropertyChanged();
             }
         }
 
-        public ComptePageViewModel()
+        public SearchOrUpdateComptePageViewModel()
         {
-            searchCompte = new Compte();
+            compteToSearchOrUpdate = new Compte();
             SearchButton = new RelayCommand(ActionSearchByEmail);
             BtnModifyCompteCommand = new RelayCommand(ActionModifyCompte);
             BtnClearCompteCommand = new RelayCommand(ActionClearCompte);
@@ -43,17 +45,17 @@ namespace TP3MVVM.ViewModel
 
         private async void ActionSearchByEmail()
         {
-            SearchCompte = await WSService.GetCompteByMailAsync(SearchCompte.Mel);
+            CompteToSearchOrUpdate = await WSService.GetCompteByMailAsync(CompteToSearchOrUpdate.Mel);
         }
 
         private async void ActionModifyCompte()
         {
-            if (SearchCompte.CompteId == 0)
+            if (CompteToSearchOrUpdate.CompteId == 0)
             {
                 return;
             }
 
-            if (await WSService.PutCompteAsync(SearchCompte))
+            if (await WSService.PutCompteAsync(CompteToSearchOrUpdate))
             {
                 new ToastContentBuilder()
                    .AddText("Enregistrement réussi")
@@ -63,21 +65,20 @@ namespace TP3MVVM.ViewModel
             {
                 new ToastContentBuilder()
                    .AddText("Echec lors de l'enregistrement")
-                   .Show(); ;
+                   .Show();
             }
-
-
-           
         }
 
         private async void ActionClearCompte()
         {
-            SearchCompte = new Compte();
+            CompteToSearchOrUpdate = new Compte();
         }
 
         private async void ActionAddCompte()
         {
-            await WSService.PostCompteAsync(SearchCompte);
+            RootPage r = (RootPage) Window.Current.Content;
+            SplitView sv = (SplitView)(r.Content);
+            (sv.Content as Frame).Navigate(typeof(AddComptePage));
         }
     }
 }

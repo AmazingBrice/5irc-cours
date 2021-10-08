@@ -1,0 +1,63 @@
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using TP3MVVM.Models;
+using TP3MVVM.Services;
+using TP3MVVM.View;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+
+namespace TP3MVVM.ViewModel
+{
+    class AddComptePageViewModel : ViewModelBase
+    {
+        public ICommand BtnAddCompteCommand { get; set; }
+        public ICommand BtnClearCompteCommand { get; set; }
+
+        private Compte compteToAdd{ get; set; }
+
+        public Compte CompteToAdd
+        {
+            get { return compteToAdd; }
+            set
+            {
+                compteToAdd = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public AddComptePageViewModel()
+        {
+            compteToAdd = new Compte();
+            BtnAddCompteCommand = new RelayCommand(ActionModifyCompte);
+            BtnClearCompteCommand = new RelayCommand(ActionClearCompte);
+        }
+
+        private async void ActionModifyCompte()
+        {
+            if (await WSService.PostCompteAsync(CompteToAdd))
+            {
+                new ToastContentBuilder()
+                   .AddText("Enregistrement réussi")
+                   .Show(); ;
+            }
+            else
+            {
+                new ToastContentBuilder()
+                   .AddText("Echec lors de l'enregistrement")
+                   .Show();
+            }
+        }
+
+        private async void ActionClearCompte()
+        {
+            CompteToAdd = new Compte();
+        }
+    }
+}

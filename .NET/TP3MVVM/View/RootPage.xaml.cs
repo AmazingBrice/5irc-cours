@@ -46,7 +46,7 @@ namespace TP3MVVM.View
 
         private void GoToMenuCompte(object sender, RoutedEventArgs e)
         {
-            (MySplitView.Content as Frame).Navigate(typeof(ComptePage));
+            (MySplitView.Content as Frame).Navigate(typeof(SearchOrUpdateComptePage));
         }
     }
 }

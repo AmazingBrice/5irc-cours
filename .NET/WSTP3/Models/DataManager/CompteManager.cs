@@ -39,10 +39,12 @@ namespace WSTP3.Models.DataManager
                 .FirstOrDefaultAsync(e => e.Mel.ToUpper() == mail.ToUpper());
         }
 
-        public async Task AddAsync(Compte entity)
+        public async Task<Compte> AddAsync(Compte entity)
         {
             await _context.Comptes.AddAsync(entity);
             await _context.SaveChangesAsync();
+
+            return entity;
         }
 
         public async Task UpdateAsync(Compte compte, Compte entity)

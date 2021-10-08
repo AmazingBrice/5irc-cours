@@ -28,11 +28,11 @@ namespace WSTP3.Models.EntityFramework
         [Required(AllowEmptyStrings = false)]
         public string Prenom { get; set; }
 
-        [RegularExpression(@"^0[0-9]{9}$", ErrorMessage = "Phone number is invalid")]
+        // [RegularExpression(@"^0[0-9]{9}$", ErrorMessage = "Phone number is invalid")]
         [Column("CPT_TELPORTABLE", TypeName = "char(10)")]
         public string TelPortable { get; set; }
 
-        [EmailAddress]
+        // [EmailAddress]
         [Display(Name = "Email")]
         [StringLength(100, MinimumLength = 6, ErrorMessage = "La longueur d’un email doit être comprise entre 6 et 100 caractères.")]
         [Required(AllowEmptyStrings = false)]
@@ -50,7 +50,7 @@ namespace WSTP3.Models.EntityFramework
         public string Rue { get; set; }
 
         [Column("CPT_CP", TypeName = "char(5)")]
-        [RegularExpression(@"^[0-9]{5}$", ErrorMessage = "CP is invalid")]
+        // [RegularExpression(@"^[0-9]{5}$", ErrorMessage = "CP is invalid")]
         [Required(AllowEmptyStrings = false)]
         public string CodePostal { get; set; }
 

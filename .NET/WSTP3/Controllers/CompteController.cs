@@ -128,9 +128,7 @@ namespace WSTP3.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<Compte>> PostCompte(Compte compte)
         {
-            await _dataRepository.AddAsync(compte);
-
-            return CreatedAtAction("GetCompte", new { id = compte.CompteId }, compte);
+            return await _dataRepository.AddAsync(compte);
         }
 
         /// <summary>

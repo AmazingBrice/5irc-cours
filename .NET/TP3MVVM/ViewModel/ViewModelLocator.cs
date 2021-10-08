@@ -13,13 +13,17 @@ namespace TP3MVVM.ViewModel
         static ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            SimpleIoc.Default.Register<ComptePageViewModel>();
+            SimpleIoc.Default.Register<SearchOrUpdateComptePageViewModel>();
+            SimpleIoc.Default.Register<AddComptePageViewModel>();
         }
 
         /// <summary>
         /// Gets the Main property.
         /// </summary>
-        public ComptePageViewModel ComptePageVM =>
-           ServiceLocator.Current.GetInstance<ComptePageViewModel>();
+        public SearchOrUpdateComptePageViewModel SearchOrUpdateComptePageVM =>
+           ServiceLocator.Current.GetInstance<SearchOrUpdateComptePageViewModel>();
+
+        public AddComptePageViewModel AddComptePageVM =>
+           ServiceLocator.Current.GetInstance<AddComptePageViewModel>();
     }
 }
