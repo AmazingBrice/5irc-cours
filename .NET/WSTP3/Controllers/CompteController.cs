@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WSTP3.Models.EntityFramework;
 using WSTP3.Models.DataManager;
 using WSTP3.Repository;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace WSTP3.Controllers
 {
@@ -156,6 +157,34 @@ namespace WSTP3.Controllers
             await _dataRepository.DeleteAsync(compte.Value);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Patch d'un compte
+        /// </summary>
+        /// <returns>Http response</returns>
+        /// <param name="id">L'id du compte à supprimer</param>
+        /// <response code="204">Le compte a bien été patché</response>
+        /// <response code="404">L'id ne correspond à aucun compte</response>
+        /// [ProducesResponseType(typeof(IActionResult), 200)]
+        /// [ProducesResponseType(404)]
+        // PATCH: api/Compte/5
+        [HttpPatch("{id:int}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+       public async Task<ActionResult<Compte>> PatchCompte([FromRoute] int id, [FromBody] JsonPatchDocument<Compte> patchEntity)
+        {
+            var compte = await _dataRepository.GetByIdAsync(id);
+
+            if (compte == null)
+            {
+                return NotFound("Le compte n'existe pas");
+            }
+
+            patchEntity.ApplyTo(compte.Value, ModelState);
+            await _dataRepository.SaveChangesAsync();
+
+            return compte;
         }
     }
 }

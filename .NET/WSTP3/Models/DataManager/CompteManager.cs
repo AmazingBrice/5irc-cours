@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace WSTP3.Models.DataManager
 {
@@ -42,7 +43,7 @@ namespace WSTP3.Models.DataManager
         public async Task<Compte> AddAsync(Compte entity)
         {
             await _context.Comptes.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            await SaveChangesAsync();
 
             return entity;
         }
@@ -65,12 +66,17 @@ namespace WSTP3.Models.DataManager
             compte.TelPortable = entity.TelPortable;
             compte.FavorisCompte = entity.FavorisCompte;
 
-            await _context.SaveChangesAsync();
+            await SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Compte compte)
         {
             _context.Comptes.Remove(compte);
+            await SaveChangesAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
             await _context.SaveChangesAsync();
         }
     }

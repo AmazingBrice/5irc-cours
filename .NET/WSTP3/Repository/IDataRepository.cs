@@ -12,8 +12,9 @@ namespace WSTP3.Repository
         Task<ActionResult<IEnumerable<TEntity>>> GetAllAsync();
         Task<ActionResult<TEntity>> GetByIdAsync(int id);
         Task<ActionResult<TEntity>> GetByStringAsync(string str);
-        Task<Compte> AddAsync(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
         Task UpdateAsync(TEntity entityToUpdate, TEntity entity);
         Task DeleteAsync(TEntity entity);
+        Task SaveChangesAsync();
     }
 }

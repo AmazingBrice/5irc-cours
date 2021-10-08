@@ -41,6 +41,24 @@ namespace TP3MVVM.ViewModel
 
         private async void ActionAddCompte()
         {
+            // Checking if CompteToAdd have all the informations needed
+            if (string.IsNullOrEmpty(CompteToAdd.Nom) ||
+                string.IsNullOrEmpty(CompteToAdd.Prenom) ||
+                string.IsNullOrEmpty(CompteToAdd.Mel) ||
+                string.IsNullOrEmpty(CompteToAdd.TelPortable) ||
+                string.IsNullOrEmpty(CompteToAdd.Rue) ||
+                string.IsNullOrEmpty(CompteToAdd.CodePostal) ||
+                string.IsNullOrEmpty(CompteToAdd.Ville) ||
+                string.IsNullOrEmpty(CompteToAdd.Pays) ||
+                string.IsNullOrEmpty(CompteToAdd.Pwd)
+                )
+            {
+                new ToastContentBuilder()
+                  .AddText($"Erreur: Il manque des informations.")
+                  .Show();
+                return;
+            }
+
             var latlng = await WSBingMaps.GetInstance().GetCoordinatesByCompte(CompteToAdd);
             CompteToAdd.Latitude = latlng[0];
             CompteToAdd.Longitude = latlng[1];
@@ -49,7 +67,7 @@ namespace TP3MVVM.ViewModel
             {
                 new ToastContentBuilder()
                    .AddText($"Enregistrement réussi avec lat : {CompteToAdd.Latitude} et lng : {CompteToAdd.Longitude}")
-                   .Show(); ;
+                   .Show();
             }
             else
             {
