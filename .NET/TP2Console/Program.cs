@@ -13,69 +13,69 @@ namespace TP2Console
             using (var ctx = new FilmsDBContext())
             {
                 // update avec savechanges
-                //Film titanic = ctx.Films.First(f => f.Nom.Contains("Titanic"));
-                //titanic.Description = "Un bateau échoué. Date : " + DateTime.Now;
-                //int nbChanges = ctx.SaveChanges();
-                //Console.WriteLine("Nombre d'enregistrements modifiés ou ajoutés : " + nbChanges);
+                Film titanic = ctx.Films.First(f => f.Nom.Contains("Titanic"));
+                titanic.Description = "Un bateau échoué. Date : " + DateTime.Now;
+                int nbChanges = ctx.SaveChanges();
+                Console.WriteLine("Nombre d'enregistrements modifiés ou ajoutés : " + nbChanges);
 
                 // chargement explicite
-                //Categorie categorieAction = ctx.Categories.First(c => c.Nom == "Action");
-                //Console.WriteLine("Categorie : " + categorieAction.Nom);
-                //Console.WriteLine("Films : ");
-                //Chargement des films de la catégorie Action.
-                //foreach (var film in ctx.Films
-                //    .Where(f => f.CategorieNavigation.Nom == categorieAction.Nom)
-                //    .ToList()
-                //)
-                //{
-                //    Console.WriteLine(film.Nom);
-                //}
+                Categorie categorieAction = ctx.Categories.First(c => c.Nom == "Action");
+                Console.WriteLine("Categorie : " + categorieAction.Nom);
+                Console.WriteLine("Films : ");
+                // Chargement des films de la catégorie Action.
+                foreach (var film in ctx.Films
+                   .Where(f => f.CategorieNavigation.Nom == categorieAction.Nom)
+                   .ToList()
+                )
+                {
+                   Console.WriteLine(film.Nom);
+                }
 
                 // chargement explicite avec Entry et Collection : one to many et Reference (many to one) (recommandé)
-                //ctx.Entry(categorieAction).Collection(c => c.Films).Load();
-                //Console.WriteLine("Films : ");
-                //foreach (var film in categorieAction.Films)
-                //{
-                //    Console.WriteLine(film.Nom);
-                //}
+                ctx.Entry(categorieAction).Collection(c => c.Films).Load();
+                Console.WriteLine("Films : ");
+                foreach (var film in categorieAction.Films)
+                {
+                   Console.WriteLine(film.Nom);
+                }
 
                 // chargement hatif, la catégorie et ses films sont chargés
-                //var categorieAction = ctx.Categories
-                //    .Include(c => c.Films)
-                //    .First(c => c.Nom == "Action");
-                //Console.WriteLine("Categorie : " + categorieAction.Nom);
-                //Console.WriteLine("Films : ");
-                //foreach (var film in categorieAction.Films)
-                //{
-                //    Console.WriteLine(film.Nom);
-                //}
+                categorieAction = ctx.Categories
+                   .Include(c => c.Films)
+                   .First(c => c.Nom == "Action");
+                Console.WriteLine("Categorie : " + categorieAction.Nom);
+                Console.WriteLine("Films : ");
+                foreach (var film in categorieAction.Films)
+                {
+                   Console.WriteLine(film.Nom);
+                }
 
                 // lazy loading
-                //categorieAction = ctx.Categories.First(c => c.Nom == "Action");
-                //Console.WriteLine("Categorie : " + categorieAction.Nom);
-                //Console.WriteLine("Films : ");
-                ////Chargement des films de la catégorie Action.
-                //foreach (var film in categorieAction.Films) // lazy loading initiated
-                //{
-                //    Console.WriteLine(film.Nom);
-                //}
+                categorieAction = ctx.Categories.First(c => c.Nom == "Action");
+                Console.WriteLine("Categorie : " + categorieAction.Nom);
+                Console.WriteLine("Films : ");
+                //Chargement des films de la catégorie Action.
+                foreach (var film in categorieAction.Films) // lazy loading initiated
+                {
+                   Console.WriteLine(film.Nom);
+                }
             }
 
-            //Exo2Q1();
-            //Exo2Q2();
-            //Exo2Q3();
-            //Exo2Q4();
-            //Exo2Q5();
-            //Exo2Q6();
-            //Exo2Q7();
-            //Exo2Q8();
-            //Exo2Q9();
+            Exo2Q1();
+            Exo2Q2();
+            Exo2Q3();
+            Exo2Q4();
+            Exo2Q5();
+            Exo2Q6();
+            Exo2Q7();
+            Exo2Q8();
+            Exo2Q9();
 
-            //AddUtilisateur();
-            //ModifierFilm();
-            //DeleteFilm();
-            //AjouterAvis();
-            //Ajouter2FilmsCategorieDrame();
+            AddUtilisateur();
+            ModifierFilm();
+            DeleteFilm();
+            AjouterAvis();
+            Ajouter2FilmsCategorieDrame();
 
             Console.ReadKey();
         }

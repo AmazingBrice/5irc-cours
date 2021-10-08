@@ -40,7 +40,9 @@ namespace WSTP3
             services.AddDbContext<TP3DBContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("TP3DBContext")));
 
-            services.AddScoped<IDataRepository<Compte>, CompteManager>();
+            services.AddScoped<ICompteRepository, CompteManager>();
+            services.AddScoped<IFilmRepository, FilmManager>();
+            services.AddScoped<IFavoriRepository, FavoriManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
