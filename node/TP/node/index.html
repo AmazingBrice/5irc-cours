@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>app</title>
+</head>
+
+<body>
+
+    <div>
+        nom: <input type="text" id="nom" name="nom">
+        prenom: <input type="text" id="prenom" name="prenom">
+        <button type="button" onclick="go()">Go</button>
+    </div>
+
+    <div id="personnes"></div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        window.onbeforeunload = function (e) {
+            socket.disconnect();
+        };
+
+        var socket = io({
+            transports: ['websocket'],
+            upgrade: false
+        });
+
+        console.log(socket.id);
+
+        socket.on('dataOut', function (data) {
+            document.getElementById('personnes').innerHTML = data;
+        });
+
+        function go() {
+            const nom = document.getElementById('nom').value
+            const prenom = document.getElementById('prenom').value
+            const data = '{"nom":"' + nom + '", "prenom":"' + prenom + '"}'
+            socket.emit('dataIn', data);
+        }
+    </script>
+</body>
+
+</html>
